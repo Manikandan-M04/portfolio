@@ -288,7 +288,7 @@ body {
     width: 100%;
 }
 
-.project-card:nth-child(3) .project-image {
+.project-card:nth-child(3) .project-image .image{
   background-image: url("american.png");
   height: 100%;
   width: 100%;
@@ -319,6 +319,18 @@ body {
     width: 60%;
     background-size: cover;
     background-repeat: no-repeat;
+  }
+
+  .project-card:nth-child(8) .project-image .image{
+    background-image: url("rockpaper.jpg");
+    height: 100%;
+    width: 100%;
+  }
+
+  .project-card:nth-child(9) .project-image .image{
+    background-image: url("spiro.webp");
+    height: 100%;
+    width: 100%;
   }
 
 
