@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manikandan - Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Portfolio</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm Manikandan</h1>
+                    <p class="mychoice">I am passionate about backend development and love learning new things to improve my skills. I am still in the learning process and always eager to grow.</p>
+                    <a href="#projects" class="cta-btn">View My Projects</a>
+                </div>
+                <img src="finalimg.jpg" alt="Manikandan" class="profile-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card" data-skill="java">
+                    <div class="skill-icon">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <h3 class="skill-name">Java</h3>
+                </div>
+                <div class="skill-card" data-skill="html">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3 class="skill-name">HTML</h3>
+                </div>
+                <div class="skill-card" data-skill="css">
+                    <div class="skill-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h3 class="skill-name">CSS</h3>
+                </div>
+                <div class="skill-card" data-skill="javascript">
+                    <div class="skill-icon">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <h3 class="skill-name">JavaScript</h3>
+                </div>
+                <div class="skill-card" data-skill="scratch">
+                    <div class="skill-icon">
+                        <img src="scratch-icon.png" alt="scratch" class="scratch">
+                    </div>
+                    <h3 class="skill-name">Scratch</h3>
+                </div>
+                <div class="skill-card" data-skill="Mysql">
+                    <div class="skill-icon">
+                        <img src="mysql.png" alt="Mysql" class="scratch">
+                    </div>
+                    <h3 class="skill-name">mysql</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            <div class="filter-info">
+                <p><span id="current-filter">All Projects</span> <span id="reset-filter" style="display: none; cursor: pointer; margin-left: 10px; color: #3498db;">(Reset Filter)</span></p>
+            </div>
+            <div class="projects-container">
+                <!-- Java Projects -->
+                <div class="project-card" data-technologies="java">
+                    <a href="https://github.com/vidhuran-s/Speako">
+                        <div class="project-image">
+                            <div class="image"></div>
+                        </div>
+                    </a>
+                    <div class="project-info">
+                        <h3 class="project-title">Speako</h3>
+                        <p class="project-desc"></p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Html</span>
+                            <span class="tech-tag">css</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-technologies="java Mysql">
+                    <a href="https://github.com/Manikandan-M04/dataBaseProject">
+                        <div class="project-image">
+                            <div class="image"></div>
+                        </div>
+                    </a>
+                    <div class="project-info">
+                        <h3 class="project-title">Confrence room booking System</h3>
+                        <p class="project-desc"></p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- HTML Projects -->
+                <div class="project-card" data-technologies="html css">
+                    <a href="https://manikandanmuthusamy-9967-8443.zcodeusers.in/file/mainpage.html"> <div class="project-image">
+                        <div class="image"></div>
+                    </div></a>
+                    <div class="project-info">
+                        <h3 class="project-title">American tourister</h3>
+                        <p class="project-desc"></p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- <div class="project-card" data-technologies="html css">
+                    <div class="project-image">
+                        <div class="image"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Portfolio Template</h3>
+                        <p class="project-desc">.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">Grid</span>
+                        </div>
+                    </div>
+                </div> -->
+                
+                <!-- JavaScript Projects -->
+                <div class="project-card" data-technologies="javascript html css">
+                    <a href="https://manikandanmuthusamy-9967-8443.zcodeusers.in/jsFinalProject/jsproject%20(1)/index.html"><div class="project-image">
+                        <div class="image"></div>
+                    </div></a>
+                    <div class="project-info">
+                        <h3 class="project-title">Fourte</h3>
+                        <p class="project-desc"></p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-technologies="java ">
+                    <a href="https://github.com/Manikandan-M04/Implement_project">
+                        <div class="project-image">
+                            <div class="image"></div>
+                        </div>
+                    </a>
+                    <div class="project-info">
+                        <h3 class="project-title">Queue implementation</h3>
+                        <p class="project-desc"></p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Multi-technology Projects -->
+                <div class="project-card" data-technologies="scratch">
+                    <a href="https://scratch.mit.edu/projects/1044798295/fullscreen/">
+                        <div class="project-image">
+                            <div class="image"></div>
+                        </div>
+                    </a>
+                    <div class="project-info">
+                        <h3 class="project-title">Flappy bird</h3>
+                        <p class="project-desc"></p>
+                        <div class="project-tech">
+                            <span class="tech-tag">scratch</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="project-card" data-technologies="scratch">
+                    <a href="https://scratch.mit.edu/projects/1030526878/fullscreen/">
+                        <div class="project-image">
+                            <div class="image"></div>
+                        </div>
+                    </a>
+                    <div class="project-info">
+                        <h3 class="project-title">Analog clock</h3>
+                        <p class="project-desc"></p>
+                        <div class="project-tech">
+                            <span class="tech-tag">scratch</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <h4>Contact</h5>
+                    <p>@ manikandan.muthusamy@zohocorp.com</p>
+                    <p>ph :9361869689</p>
+                    <p>Emp id : ZSTTK365/24</p>
+                    <!-- <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fas fa-envelope"></i></a> -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

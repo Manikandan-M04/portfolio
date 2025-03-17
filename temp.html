@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manikandan - Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            margin-top: 70px;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+        
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .hero-text p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid #3498db;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(52, 152, 219, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+            }
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #3498db;
+        }
+        
+        .cta-btn:hover {
+            background-color: transparent;
+            color: #3498db;
+        }
+        
+        /* Skills Section */
+        .skills {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #333;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: #3498db;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .skill-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 180px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .skill-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+        
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .project-desc {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .tech-tag {
+            background-color: #e9f5ff;
+            color: #3498db;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .project-link {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .project-link:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            color: #333;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
+        
+        .copyright {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 1024px) {
+            .hero-text h1 {
+                font-size: 40px;
+            }
+            
+            .profile-image {
+                width: 250px;
+                height: 250px;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                margin-top: 50px;
+            }
+            
+            .nav-links {
+                position: absolute;
+                right: 0;
+                top: 70px;
+                background-color: #fff;
+                flex-direction: column;
+                width: 100%;
+                transform: translateX(100%);
+                transition: transform 0.5s ease-in;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                transform: translateX(0);
+            }
+            
+            .nav-links li {
+                margin: 0;
+                padding: 15px 0;
+                text-align: center;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .burger {
+                display: block;
+            }
+            
+            .projects-container {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 32px;
+            }
+            
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .skill-card {
+                width: 140px;
+            }
+            
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Manikandan</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm Manikandan</h1>
+                    <p>A passionate developer focused on creating elegant, efficient, and user-friendly solutions. I specialize in Java, JavaScript, HTML, and CSS to build modern web applications.</p>
+                    <a href="#projects" class="cta-btn">View My Projects</a>
+                </div>
+                <div class="hero-image">
+                    <img src="/api/placeholder/600/600" alt="Manikandan" class="profile-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <h3 class="skill-name">Java</h3>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3 class="skill-name">HTML</h3>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h3 class="skill-name">CSS</h3>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <h3 class="skill-name">JavaScript</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            <div class="projects-container">
+                <div class="project-card">
+                    <img src="/api/placeholder/400/320" alt="Project 1" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">E-commerce Platform</h3>
+                        <p class="project-desc">A full-featured e-commerce website with product catalog, user authentication, and payment integration.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Live Demo</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="/api/placeholder/400/320" alt="Project 2" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Portfolio Website</h3>
+                        <p class="project-desc">A personal portfolio showcasing my skills, projects, and achievements with an interactive and responsive design.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Live Demo</a>
+                            <a href="#" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <form class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="cta-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p class="copyright">&copy; 2025 Manikandan. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="about" class="about">
+            <img src="images/profile.jpg" alt="Profile Picture">
+            <h1>My Portfolio</h1>
+            <h2>About</h2>
+            <p>Welcome to my portfolio! I am a passionate web developer with skills in HTML, CSS, JavaScript, React, and Node.js.</p>
+        </section>
+        <section id="skills" class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Node.js</li>
+            </ul>
+        </section>
+        <section id="projects" class="projects">
+            <h2>Projects</h2>
+            <div class="project-category">
+                <h3 onclick="toggleProjects('java-projects')">Java</h3>
+                <div id="java-projects" class="project-list">
+                    <div class="project" onclick="window.location.href='https://github.com/yourusername/java-project1'">
+                        <img src="images/java-icon.png" alt="Java Icon">
+                        Java Project 1
+                    </div>
+                    <div class="project" onclick="window.location.href='https://github.com/yourusername/java-project2'">
+                        <img src="images/java-icon.png" alt="Java Icon">
+                        Java Project 2
+                    </div>
+                    <div class="project" onclick="window.location.href='https://github.com/yourusername/java-project3'">
+                        <img src="images/java-icon.png" alt="Java Icon">
+                        Java Project 3
+                    </div>
+                </div>
+            </div>
+            <div class="project-category">
+                <h3 onclick="toggleProjects('js-projects')">JavaScript</h3>
+                <div id="js-projects" class="project-list">
+                    <div class="project" onclick="window.location.href='https://github.com/yourusername/js-project1'">
+                        <img src="images/js-icon.png" alt="JavaScript Icon">
+                        JavaScript Project 1
+                    </div>
+                    <div class="project" onclick="window.location.href='https://github.com/yourusername/js-project2'">
+                        <img src="images/js-icon.png" alt="JavaScript Icon">
+                        JavaScript Project 2
+                    </div>
+                    <div class="project" onclick="window.location.href='https://github.com/yourusername/js-project3'">
+                        <img src="images/js-icon.png" alt="JavaScript Icon">
+                        JavaScript Project 3
+                    </div>
+                </div>
+            </div>
+            <div class="project-category">
+                <h3 onclick="toggleProjects('html-projects')">HTML</h3>
+                <div id="html-projects" class="project-list">
+                    <div class="project" onclick="window.location.href='https://github.com/yourusername/html-project1'">
+                        <img src="images/html-icon.png" alt="HTML Icon">
+                        HTML Project 1
+                    </div>
+                    <div class="project" onclick="window.location.href='https://github.com/yourusername/html-project2'">
+                        <img src="images/html-icon.png" alt="HTML Icon">
+                        HTML Project 2
+                    </div>
+                    <div class="project" onclick="window.location.href='https://github.com/yourusername/html-project3'">
+                        <img src="images/html-icon.png" alt="HTML Icon">
+                        HTML Project 3
+                    </div>
+                </div>
+            </div>
+            <div class="project-category">
+                <h3 onclick="toggleProjects('scratch-projects')">Scratch</h3>
+                <div id="scratch-projects" class="project-list">
+                    <div class="project" onclick="window.location.href='https://github.com/yourusername/scratch-project1'">
+                        <img src="images/scratch-icon.png" alt="Scratch Icon">
+                        Scratch Project 1
+                    </div>
+                    <div class="project" onclick="window.location.href='https://github.com/yourusername/scratch-project2'">
+                        <img src="images/scratch-icon.png" alt="Scratch Icon">
+                        Scratch Project 2
+                    </div>
+                    <div class="project" onclick="window.location.href='https://github.com/yourusername/scratch-project3'">
+                        <img src="images/scratch-icon.png" alt="Scratch Icon">
+                        Scratch Project 3
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2025 My Portfolio</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html> -->
