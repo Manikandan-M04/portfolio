@@ -290,6 +290,8 @@ body {
 
 .project-card:nth-child(3) .project-image {
   background-image: url("american.png");
+  height: 100%;
+  width: 100%;
 }
 
 .project-card:nth-child(4) .project-image {
