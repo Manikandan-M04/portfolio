@@ -28,10 +28,6 @@ function filterProjects(technology) {
         }
     });
 
-    // Update filter display
-    currentFilter.textContent = technology.charAt(0).toUpperCase() + technology.slice(1) + ' Projects';
-    resetFilter.style.display = 'inline';
-
     // Update active button
     filterButtons.forEach(btn => btn.classList.remove('active'));
     document.querySelector(`.filter-btn[data-skill="${technology}"]`).classList.add('active');
@@ -45,10 +41,6 @@ function resetFilters() {
             card.classList.add('show');
         }, 100);
     });
-
-    // Reset filter display
-    currentFilter.textContent = 'All Projects';
-    resetFilter.style.display = 'none';
 
     // Reset active buttons
     filterButtons.forEach(btn => btn.classList.remove('active'));
@@ -67,9 +59,6 @@ filterButtons.forEach(button => {
         }
     });
 });
-
-// Reset filter event
-resetFilter.addEventListener('click', resetFilters);
 
 // Initialize all projects as visible
 resetFilters();

@@ -214,7 +214,7 @@ body {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-.skill-card.active {
+.active {
   background-color: #3498db;
   color: white;
 }
@@ -246,23 +246,26 @@ body {
 }
 
 .filter-btn {
-  background-color: #3498db;
-  color: #fff;
+  background-color: white;
+  color:#1a77b6;
+  border: 1px solid #3498db;
   font-weight:600 ;
-  border: none;
+  /* border: none; */
   padding: 10px 20px;
   margin: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .filter-btn:hover {
-  background-color: #1a77b6;
+  background-color: #3498db;
+  color: white;
 }
 
 .filter-btn.active {
-  background-color: #1abc9c;
+  background-color: #3498db;
+  color: white;
 }
 
 /* Projects Section */
