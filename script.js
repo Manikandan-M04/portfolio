@@ -7,7 +7,7 @@ burger.addEventListener('click', () => {
 });
 
 // Project Filtering
-const skillCards = document.querySelectorAll('.skill-card');
+const filterButtons = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 const currentFilter = document.getElementById('current-filter');
 const resetFilter = document.getElementById('reset-filter');
@@ -16,8 +16,8 @@ const resetFilter = document.getElementById('reset-filter');
 function filterProjects(technology) {
     projectCards.forEach(card => {
         const technologies = card.getAttribute('data-technologies').split(' ');
-        
-        if (technologies.includes(technology)) {
+
+        if (technology === 'all' || technologies.includes(technology)) {
             card.classList.remove('hide');
             setTimeout(() => {
                 card.classList.add('show');
@@ -27,19 +27,14 @@ function filterProjects(technology) {
             card.classList.add('hide');
         }
     });
-    
+
     // Update filter display
     currentFilter.textContent = technology.charAt(0).toUpperCase() + technology.slice(1) + ' Projects';
     resetFilter.style.display = 'inline';
-    
-    // Update active skill
-    skillCards.forEach(skill => {
-        if (skill.getAttribute('data-skill') === technology) {
-            skill.classList.add('active');
-        } else {
-            skill.classList.remove('active');
-        }
-    });
+
+    // Update active button
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`.filter-btn[data-skill="${technology}"]`).classList.add('active');
 }
 
 // Function to reset filters
@@ -50,23 +45,22 @@ function resetFilters() {
             card.classList.add('show');
         }, 100);
     });
-    
+
     // Reset filter display
     currentFilter.textContent = 'All Projects';
     resetFilter.style.display = 'none';
-    
-    // Reset active skills
-    skillCards.forEach(skill => {
-        skill.classList.remove('active');
-    });
+
+    // Reset active buttons
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    document.querySelector('.filter-btn[data-skill="all"]').classList.add('active');
 }
 
-// Add event listeners to skill cards
-skillCards.forEach(skill => {
-    skill.addEventListener('click', () => {
-        const technology = skill.getAttribute('data-skill');
-        
-        if (skill.classList.contains('active')) {
+// Add event listeners to filter buttons
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const technology = button.getAttribute('data-skill');
+
+        if (button.classList.contains('active')) {
             resetFilters();
         } else {
             filterProjects(technology);
